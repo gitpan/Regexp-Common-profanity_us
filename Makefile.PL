@@ -3,7 +3,7 @@ use ExtUtils::MakeMaker;
 # the contents of the Makefile that is written.
 WriteMakefile(
     'NAME'		=> 'Regexp::Common::profanity_us',
-    'VERSION_FROM'	=> 'lib/Regexp/Profanity/US.pm', # finds $VERSION
+    'VERSION_FROM'	=> 'lib/Regexp/Common/profanity_us.pm',
     'PREREQ_PM'		=> { Regexp::Common => 2.1 }, 
     ($] >= 5.005 ?    ## Add these new keywords supported since 5.005
       (

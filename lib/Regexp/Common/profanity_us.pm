@@ -8,7 +8,7 @@ use Data::Dumper;
 use Regexp::Common qw /pattern clean no_defaults/;
 use vars qw /$VERSION/;
 
-$VERSION = '2.0';
+$VERSION = '2.1';
 
 
 
@@ -75,12 +75,13 @@ load-of-crap
 cock-suck
 suck-my-cock
 blow-job
+facial-fetish
 fuck
 suck-(cock|dick)
 hand-job
 jack-off
 jerk-off
-(lick|suck)-my-nipples
+(lick|suck)-(cock|dick|nipples|tits)
 
 #  groin
 
@@ -147,18 +148,21 @@ drink-piss
 # vaginal 
 
 pussies
-hot-pussy
-juicy-pussy
-smelly-pussy
-funky-pussy
-white-pussy
-black-pussy
-asian-pussy
-sexy-pussy
+hot-puss
+juicy-puss
+smelly-puss
+funky-puss
+white-puss
+black-puss
+asian-puss
+sex-puss
+sex-clit
+juic-clit
 
 # things I have seen in my inbox :)
 
 milk-my-breasts
+
 
 __END__
 
@@ -285,7 +289,7 @@ with a bit of hedging to support soundexing (and only definite obscene
 words are searched for. Ambiguous / contextual searching is left as an
 exercise for the reader).
 
-Or in L<Regexp::Common> terminology, which is the infrastructure on which 
+In L<Regexp::Common> terminology, which is the infrastructure on which 
 this module is built, we have only the following regexp for your 
 string-matching ecstasy:
 
@@ -315,6 +319,9 @@ and
 but not
   
   shit_head
+
+Another thing about text is that it may be resolved into labels by splitting
+on whitespace. Thus, one could have one engine and a different pre-processor.
 
 =head1 USAGE
 
@@ -372,7 +379,6 @@ L<Regexp::Common::profanity> for a slightly more European set of words.
 L<Regexp::Profanity::US> for a pair of wrapper functions that use these regexps.
 
 =head1 AND NOW......
-
 # relating to the penis:
 
 big-dick
@@ -396,12 +402,13 @@ load-of-crap
 cock-suck
 suck-my-cock
 blow-job
+facial-fetish
 fuck
 suck-(cock|dick)
 hand-job
 jack-off
 jerk-off
-(lick|suck)-my-nipples
+(lick|suck)-(cock|dick|nipples|tits)
 
 #  groin
 
@@ -468,19 +475,20 @@ drink-piss
 # vaginal 
 
 pussies
-hot-pussy
-juicy-pussy
-smelly-pussy
-funky-pussy
-white-pussy
-black-pussy
-asian-pussy
-sexy-pussy
+hot-puss
+juicy-puss
+smelly-puss
+funky-puss
+white-puss
+black-puss
+asian-puss
+sex-puss
+sex-clit
+juic-clit
 
 # things I have seen in my inbox :)
 
 milk-my-breasts
-
 
 
 
