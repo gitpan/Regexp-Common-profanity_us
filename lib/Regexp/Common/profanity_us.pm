@@ -8,7 +8,7 @@ use Data::Dumper;
 use Regexp::Common qw /pattern clean no_defaults/;
 use vars qw /$VERSION/;
 
-$VERSION = '2.1';
+$VERSION = '2.2';
 
 
 
@@ -136,6 +136,7 @@ fuck-off
 
 # unpleasant bodily acts
 
+eat-poop
 smell-farts
 half-assed
 piss--face
