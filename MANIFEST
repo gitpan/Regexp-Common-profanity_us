@@ -1,0 +1,8 @@
+MANIFEST
+Makefile.PL
+lib/Regexp/Common/profanity_us.pm
+lib/Regexp/Profanity/US.pm
+test.pl
+wertyderds.el
+wertyderds.txt
+META.yml                                Module meta-data (added by MakeMaker)
