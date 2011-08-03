@@ -1,6 +1,6 @@
 package Regexp::Common::profanity_us;
 BEGIN {
-  $Regexp::Common::profanity_us::VERSION = '3.112150';
+  $Regexp::Common::profanity_us::VERSION = '4.112150';
 }
 
 use strict;
@@ -404,6 +404,11 @@ asian-puss
 sex-puss
 sex-clit
 juic-clit
+
+# christmas
+
+season-peeing
+merry-pissmas
 
 # things I have seen in my inbox :)
 

@@ -28,7 +28,7 @@ my %WriteMakefileArgs = (
     'Exporter' => '0',
     'Regexp::Common' => '0'
   },
-  'VERSION' => '3.112150',
+  'VERSION' => '4.112150',
   'test' => {
     'TESTS' => ''
   }

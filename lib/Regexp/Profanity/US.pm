@@ -1,6 +1,6 @@
 package Regexp::Profanity::US;
 BEGIN {
-  $Regexp::Profanity::US::VERSION = '3.112150';
+  $Regexp::Profanity::US::VERSION = '4.112150';
 }
 
 
