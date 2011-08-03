@@ -1,14 +1,18 @@
 package Regexp::Common::profanity_us;
+BEGIN {
+  $Regexp::Common::profanity_us::VERSION = '3.112150';
+}
 
 use strict;
-local $^W = 1;
+use warnings;
 
 use Data::Dumper;
+use Data::Section::Simple qw(get_data_section);
 
 use Regexp::Common qw /pattern clean no_defaults/;
-use vars qw /$VERSION/;
 
-$VERSION = '2.2';
+
+
 
 
 
@@ -16,9 +20,15 @@ sub longest_first { length($b) <=> length($a) }
 
 my ($profanity, @profanity);
 
-while (<DATA>) {
 
-  last if /__END__/;
+my $data = Data::Section::Simple::get_data_section('profanity');
+#die "data: $data";
+
+    my @line = split "\n", $data;
+
+for (@line) {
+
+
 #  warn $_;
 
   next if /^#/;
@@ -33,6 +43,8 @@ while (<DATA>) {
 
 }
 
+#die Dumper("profanity", \@profanity);
+
 pattern name   => [qw (profanity us normal label -dist=7)],
         create => sub
   {
@@ -42,7 +54,7 @@ pattern name   => [qw (profanity us normal label -dist=7)],
     @profanity = map { s/-/$any_char/g; $_ } @profanity;
     $profanity = join '|', @profanity;
     $profanity = '(?k:' .  $profanity  . ')';
-#warn $profanity;
+    #warn "<PROFANE>$profanity</PROFANE>";
     $profanity;
   },
   ;
@@ -51,121 +63,7 @@ pattern name   => [qw (profanity us normal label -dist=7)],
 
 1;
 
-__DATA__
-# relating to the penis:
 
-big-dick
-big-prick
-super-prick
-meaty-ball
-deez-nut
-big-n-hard
-big-and-hard
-chester-the-pussy-molester
-hard-on
-hot-cock
-
-# terms referring to untruths
-
-bull-shit
-load-of-crap
-
-# sexual act
-
-cock-suck
-suck-my-cock
-blow-job
-facial-fetish
-fuck
-suck-(cock|dick)
-hand-job
-jack-off
-jerk-off
-(lick|suck)-(cock|dick|nipples|tits)
-
-#  groin
-
-crotch
-
-# buttocks
-
-ass-crack
-butt-crack
-
-# terms referring to an aggravating person
-
-dick-head
-prick-head
-ass-hole
-bastard
-
-# nerd/wimp terms
-
-punk-ass
-pussy-ass
-faggot
-dick-less
-
-# expletives (like bloody)
-
-m(o|u)th(er|a|)-fuck
-god-dam
-shitty-ass
-
-# racial terms
-
-nigg?(a|er|uh)
-
-# sexist terms
-
-bitch
-whore
-
-# telling someone to get lost
-
-suck-my-ass
-hug-my-nuts
-goto-hell
-eat-shit
-shit-eater
-shit-head
-turd-head
-shit-face
-suck-my-cock
-fuck-off
-
-# unpleasant bodily acts
-
-eat-poop
-smell-farts
-half-assed
-piss--face
-piss--ass
-poop--face
-piss-drink
-drink-piss
-
-
-# vaginal 
-
-pussies
-hot-puss
-juicy-puss
-smelly-puss
-funky-puss
-white-puss
-black-puss
-asian-puss
-sex-puss
-sex-clit
-juic-clit
-
-# things I have seen in my inbox :)
-
-milk-my-breasts
-
-
-__END__
 
 =pod
 
@@ -379,7 +277,26 @@ L<Regexp::Common::profanity> for a slightly more European set of words.
 
 L<Regexp::Profanity::US> for a pair of wrapper functions that use these regexps.
 
-=head1 AND NOW......
+=head1 AUTHOR
+
+T. M. Brannon, tbone@cpan.org
+
+I cannot pay enough thanks to 
+
+  Matthew Simon Cavalletto, evo@cpan.org.
+
+who refactored this module completely of his own volition and 
+in spite of his hectic schedule. He turned this module from an
+unsophisticated hack into something worth others using.
+
+Useful brain picking came from William McKee of Knowmad Consulting on the 
+L<Data::FormValidator> mailing list.
+
+=cut
+
+
+__DATA__
+@@ profanity
 # relating to the penis:
 
 big-dick
@@ -464,6 +381,7 @@ fuck-off
 
 # unpleasant bodily acts
 
+eat-poop
 smell-farts
 half-assed
 piss--face
@@ -492,23 +410,3 @@ juic-clit
 milk-my-breasts
 
 
-
-=cut
-
-
-=head1 AUTHOR
-
-T. M. Brannon, tbone@cpan.org
-
-I cannot pay enough thanks to 
-
-  Matthew Simon Cavalletto, evo@cpan.org.
-
-who refactored this module completely of his own volition and 
-in spite of his hectic schedule. He turned this module from an
-unsophisticated hack into something worth others using.
-
-Useful brain picking came from William McKee of Knowmad Consulting on the 
-L<Data::FormValidator> mailing list.
-
-=cut

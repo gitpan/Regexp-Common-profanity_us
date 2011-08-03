@@ -1,6 +1,9 @@
 package Regexp::Profanity::US;
+BEGIN {
+  $Regexp::Profanity::US::VERSION = '3.112150';
+}
 
-use 5.006;
+
 use strict;
 use warnings;
 use Carp qw(croak confess);
@@ -10,7 +13,7 @@ use Regexp::Common qw/profanity_us/;
 require Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT = qw(profane profane_list);
-our $VERSION = '1.5';
+
 
 my $RE = $RE{profanity}{us}{normal}{label}{-keep};
 
